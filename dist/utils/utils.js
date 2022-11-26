@@ -9,14 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.pkSwapFactoryGetAllPairsLength = exports.getTokenContractObject = exports.abis = exports.contracts = void 0;
+exports.getTokenName = exports.getLpToken1 = exports.getLpToken0 = exports.getPkswapFactoryAllPairs = exports.getPkswapFactoryAllPairsLength = exports.getTokenContractObject = exports.abis = exports.contracts = void 0;
 // src/utils.ts
 const abis = require("./abis");
 exports.abis = abis;
-const EspaniconSDK = require("@espanicon/espanicon-sdk");
+// const EspaniconSDK = require("@espanicon/espanicon-sdk");
 const Web3 = require("web3");
 const Exception = require("./exception");
-const sdk = new EspaniconSDK();
+// const sdk = new EspaniconSDK();
 const contracts = {
     pancakeswap: {
         factory: "0x6725F303b657a9451d8BA641348b6761A6CC7a17",
@@ -67,7 +67,46 @@ function makeReadonlyQuery(methodName, contractAddress, contractAbi, contractAbi
         return parsedResponse;
     });
 }
-function pkSwapFactoryGetAllPairsLength() {
+function getLpToken0(contractAddress) {
+    return __awaiter(this, void 0, void 0, function* () {
+        //
+        try {
+            return yield makeReadonlyQuery("token0", contractAddress, abis.pancakeswap.lp, abis.pancakeswap.misc[0]);
+        }
+        catch (err) {
+            const newError = new Exception(err, `Error running getLpToken0().`);
+            return { error: newError.toString() };
+        }
+    });
+}
+exports.getLpToken0 = getLpToken0;
+function getLpToken1(contractAddress) {
+    return __awaiter(this, void 0, void 0, function* () {
+        //
+        try {
+            return yield makeReadonlyQuery("token1", contractAddress, abis.pancakeswap.lp, abis.pancakeswap.misc[1]);
+        }
+        catch (err) {
+            const newError = new Exception(err, `Error running getLpToken1().`);
+            return { error: newError.toString() };
+        }
+    });
+}
+exports.getLpToken1 = getLpToken1;
+function getTokenName(contractAddress) {
+    return __awaiter(this, void 0, void 0, function* () {
+        //
+        try {
+            return yield makeReadonlyQuery("name", contractAddress, abis.pancakeswap.defaultToken, abis.pancakeswap.misc[2]);
+        }
+        catch (err) {
+            const newError = new Exception(err, `Error running getTokenName().`);
+            return { error: newError.toString() };
+        }
+    });
+}
+exports.getTokenName = getTokenName;
+function getPkswapFactoryAllPairsLength() {
     return __awaiter(this, void 0, void 0, function* () {
         //
         try {
@@ -79,4 +118,17 @@ function pkSwapFactoryGetAllPairsLength() {
         }
     });
 }
-exports.pkSwapFactoryGetAllPairsLength = pkSwapFactoryGetAllPairsLength;
+exports.getPkswapFactoryAllPairsLength = getPkswapFactoryAllPairsLength;
+function getPkswapFactoryAllPairs(index) {
+    return __awaiter(this, void 0, void 0, function* () {
+        //
+        try {
+            return yield makeReadonlyQuery("allPairs", contracts.pancakeswap.factory, abis.pancakeswap.factory, abis.pancakeswap.factory[3], index);
+        }
+        catch (err) {
+            const newError = new Exception(err, `Error running pkSwapFactoryAllPairs().`);
+            return { error: newError.toString() };
+        }
+    });
+}
+exports.getPkswapFactoryAllPairs = getPkswapFactoryAllPairs;

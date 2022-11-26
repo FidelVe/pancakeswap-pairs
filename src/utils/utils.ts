@@ -74,7 +74,52 @@ async function makeReadonlyQuery(
   return parsedResponse;
 }
 
-async function pkSwapFactoryGetAllPairsLength() {
+async function getLpToken0(contractAddress: string) {
+  //
+  try {
+    return await makeReadonlyQuery(
+      "token0",
+      contractAddress,
+      abis.pancakeswap.lp,
+      abis.pancakeswap.misc[0]
+    );
+  } catch (err) {
+    const newError = new Exception(err, `Error running getLpToken0().`);
+    return { error: newError.toString() };
+  }
+}
+
+async function getLpToken1(contractAddress: string) {
+  //
+  try {
+    return await makeReadonlyQuery(
+      "token1",
+      contractAddress,
+      abis.pancakeswap.lp,
+      abis.pancakeswap.misc[1]
+    );
+  } catch (err) {
+    const newError = new Exception(err, `Error running getLpToken1().`);
+    return { error: newError.toString() };
+  }
+}
+
+async function getTokenName(contractAddress: string) {
+  //
+  try {
+    return await makeReadonlyQuery(
+      "name",
+      contractAddress,
+      abis.pancakeswap.defaultToken,
+      abis.pancakeswap.misc[2]
+    );
+  } catch (err) {
+    const newError = new Exception(err, `Error running getTokenName().`);
+    return { error: newError.toString() };
+  }
+}
+
+async function getPkswapFactoryAllPairsLength() {
   //
   try {
     return await makeReadonlyQuery(
@@ -92,10 +137,33 @@ async function pkSwapFactoryGetAllPairsLength() {
   }
 }
 
+async function getPkswapFactoryAllPairs(index: number) {
+  //
+  try {
+    return await makeReadonlyQuery(
+      "allPairs",
+      contracts.pancakeswap.factory,
+      abis.pancakeswap.factory,
+      abis.pancakeswap.factory[3],
+      index
+    );
+  } catch (err) {
+    const newError = new Exception(
+      err,
+      `Error running pkSwapFactoryAllPairs().`
+    );
+    return { error: newError.toString() };
+  }
+}
+
 export {
   contracts,
   abis,
   // customQuery,
   getTokenContractObject,
-  pkSwapFactoryGetAllPairsLength
+  getPkswapFactoryAllPairsLength,
+  getPkswapFactoryAllPairs,
+  getLpToken0,
+  getLpToken1,
+  getTokenName
 };

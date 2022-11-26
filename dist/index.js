@@ -11,8 +11,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const utils = require("./utils/utils");
 function app() {
     return __awaiter(this, void 0, void 0, function* () {
-        const query = yield utils.pkSwapFactoryGetAllPairsLength();
+        const query = yield utils.getPkswapFactoryAllPairsLength();
         console.log(query);
+        const query1 = yield utils.getPkswapFactoryAllPairs(0);
+        console.log(query1);
+        const query2 = yield utils.getLpToken0(query1["0"]);
+        console.log(query2);
+        const query3 = yield utils.getTokenName(query2["0"]);
+        console.log(query3);
     });
 }
 // run async app
