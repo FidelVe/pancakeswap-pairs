@@ -1,0 +1,83 @@
+{
+  "names": [
+    "Fake Perl Token / Fake Binance Token",
+    "Fake Binance USD Token / Fake Perl Token",
+    "Fake Perl Token / Fake pxUSD",
+    "Fake Binance Token / Fake Perl Token",
+    "Fake Perl Token / Fake Binance USD Token",
+    "Fake pxUSD / Fake Perl Token",
+    "Fake Perl Token / Fake Binance Token",
+    "Fake Perl Token / Fake Binance USD Token",
+    "Fake Perl Token / Fake pxUSD",
+    "Test Token / WETH",
+    "WETH / Test Token"
+  ],
+  "data": [
+    {
+      "name": "Fake Perl Token / Fake Binance Token",
+      "lp": "0x3d8eE5b7249dF76E8fB6Cf2Ec53956a02Fa22369",
+      "token0": "0x3C703ad30c04af21a84B3CfE1aE5AaB660BDC549",
+      "token1": "0xB4b5505E3f684E5436a7F8D2B4C180cCe19aE907"
+    },
+    {
+      "name": "Fake Binance USD Token / Fake Perl Token",
+      "lp": "0xD196cFC148a68f7d7d95E7b0cA00DD5F4CF64c65",
+      "token0": "0x3Bb0AA7a39DC1CE5F18231f072CBF2472e919aaC",
+      "token1": "0x3C703ad30c04af21a84B3CfE1aE5AaB660BDC549"
+    },
+    {
+      "name": "Fake Perl Token / Fake pxUSD",
+      "lp": "0x9bF7De3e850450945645FeB73bC9591853047F74",
+      "token0": "0x3C703ad30c04af21a84B3CfE1aE5AaB660BDC549",
+      "token1": "0xa43a0995186ECdb6d4A0C83aC0735083f987E7e9"
+    },
+    {
+      "name": "Fake Binance Token / Fake Perl Token",
+      "lp": "0xD4c64041883f63EF945f17B49584Fea315396422",
+      "token0": "0x61F3B40a0535F878F3Ef7DA3E537D8f8b3ca63da",
+      "token1": "0x8A90F12f92f986D011136EE452356fcDBF23d285"
+    },
+    {
+      "name": "Fake Perl Token / Fake Binance USD Token",
+      "lp": "0x9470E4bDF6beC9cB6b3d62b013fbD187C8aEf864",
+      "token0": "0x8A90F12f92f986D011136EE452356fcDBF23d285",
+      "token1": "0xc033aCe693aC3c1277B6706BeD1151b5A004BDE1"
+    },
+    {
+      "name": "Fake pxUSD / Fake Perl Token",
+      "lp": "0x57413fe8486767258f0c6C0a8D403a498Ed2F6E8",
+      "token0": "0x1899E08fDdB1AE21736F97F2f1c53FFa6a529039",
+      "token1": "0x8A90F12f92f986D011136EE452356fcDBF23d285"
+    },
+    {
+      "name": "Fake Perl Token / Fake Binance Token",
+      "lp": "0x85e8bAab96B7495814486Dc4397353649AFC1EeC",
+      "token0": "0x12aA14714724d290B9343083aCb55378374e7247",
+      "token1": "0x2623de307EFe4c8a1c7eAb49169CF04F4BeC7b3D"
+    },
+    {
+      "name": "Fake Perl Token / Fake Binance USD Token",
+      "lp": "0x6F9E940E7a72900227a8dA9aEC00CA6A45C252f6",
+      "token0": "0x12aA14714724d290B9343083aCb55378374e7247",
+      "token1": "0x1C13b0C69A74B9A2Cb19F42c17162fBcbCFC122A"
+    },
+    {
+      "name": "Fake Perl Token / Fake pxUSD",
+      "lp": "0xd7Ff3F59e491b4eAf297148CFAcaE7C3f92F8c40",
+      "token0": "0x12aA14714724d290B9343083aCb55378374e7247",
+      "token1": "0x950d7D2612d83176d8528ff4aB02c666DCb61e2F"
+    },
+    {
+      "name": "Test Token / WETH",
+      "lp": "0xEda374Db2Ce98A4304014E9Cf49D48165625FE26",
+      "token0": "0x41dce30b3A703dAD2f6f9Ad3FA31371bf7B18913",
+      "token1": "0x977bcB02546b1a3F19f974d0Bfa800A65f31d53f"
+    },
+    {
+      "name": "WETH / Test Token",
+      "lp": "0x24aBd70A296DC43Ad02fdF699d349E7379CEC042",
+      "token0": "0x45706e9C3c071dBED41b63Ce50e62014B857ddD2",
+      "token1": "0xB5321bdaDdeD1f7DFeF791565e3f85F1afe66e88"
+    }
+  ]
+}

@@ -3,6 +3,9 @@ const abis = require("./abis");
 // const EspaniconSDK = require("@espanicon/espanicon-sdk");
 const Web3 = require("web3");
 const Exception = require("./exception");
+const fs = require("fs");
+const customPath = require("./customPath");
+const dataPath = "data.json";
 // const sdk = new EspaniconSDK();
 
 const contracts = {
@@ -156,6 +159,39 @@ async function getPkswapFactoryAllPairs(index: number) {
   }
 }
 
+function readDb(path: string = dataPath) {
+  try {
+    if (fs.existsSync(customPath(path))) {
+      const dbBuffer = fs.readFileSync(customPath(path), "utf-8");
+      const db = JSON.parse(dbBuffer);
+
+      return db;
+    } else {
+      console.log(`Error accessing db file: "${path}"`);
+      return null;
+    }
+  } catch (err) {
+    console.log(`Error reading database at "${path}"`);
+    console.log(err);
+    return null;
+  }
+}
+
+function writeDb(data: any, path: string = dataPath) {
+  try {
+    if (fs.existsSync(path)) {
+      console.log(`File "${path}" already exists. File will be overwritten.`);
+      fs.unlinkSync(path);
+    }
+
+    fs.writeFileSync(path, JSON.stringify(data));
+    console.log(`File "${path}" created.`);
+  } catch (err) {
+    console.log(`Unexpected error trying to create "${path}" file`);
+    console.log(err);
+  }
+}
+
 export {
   contracts,
   abis,
@@ -165,5 +201,7 @@ export {
   getPkswapFactoryAllPairs,
   getLpToken0,
   getLpToken1,
-  getTokenName
+  getTokenName,
+  readDb,
+  writeDb
 };

@@ -9,13 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getTokenName = exports.getLpToken1 = exports.getLpToken0 = exports.getPkswapFactoryAllPairs = exports.getPkswapFactoryAllPairsLength = exports.getTokenContractObject = exports.abis = exports.contracts = void 0;
+exports.writeDb = exports.readDb = exports.getTokenName = exports.getLpToken1 = exports.getLpToken0 = exports.getPkswapFactoryAllPairs = exports.getPkswapFactoryAllPairsLength = exports.getTokenContractObject = exports.abis = exports.contracts = void 0;
 // src/utils.ts
 const abis = require("./abis");
 exports.abis = abis;
 // const EspaniconSDK = require("@espanicon/espanicon-sdk");
 const Web3 = require("web3");
 const Exception = require("./exception");
+const fs = require("fs");
+const customPath = require("./customPath");
+const dataPath = "data.json";
 // const sdk = new EspaniconSDK();
 const contracts = {
     pancakeswap: {
@@ -132,3 +135,37 @@ function getPkswapFactoryAllPairs(index) {
     });
 }
 exports.getPkswapFactoryAllPairs = getPkswapFactoryAllPairs;
+function readDb(path = dataPath) {
+    try {
+        if (fs.existsSync(customPath(path))) {
+            const dbBuffer = fs.readFileSync(customPath(path), "utf-8");
+            const db = JSON.parse(dbBuffer);
+            return db;
+        }
+        else {
+            console.log(`Error accessing db file: "${path}"`);
+            return null;
+        }
+    }
+    catch (err) {
+        console.log(`Error reading database at "${path}"`);
+        console.log(err);
+        return null;
+    }
+}
+exports.readDb = readDb;
+function writeDb(data, path = dataPath) {
+    try {
+        if (fs.existsSync(path)) {
+            console.log(`File "${path}" already exists. File will be overwritten.`);
+            fs.unlinkSync(path);
+        }
+        fs.writeFileSync(path, JSON.stringify(data));
+        console.log(`File "${path}" created.`);
+    }
+    catch (err) {
+        console.log(`Unexpected error trying to create "${path}" file`);
+        console.log(err);
+    }
+}
+exports.writeDb = writeDb;
