@@ -648,4 +648,4 @@ const abis = {
   }
 };
 
-export default abis;
+export = abis;

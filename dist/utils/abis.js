@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const abis = {
     pancakeswap: {
         factory: [
@@ -649,4 +648,4 @@ const abis = {
         ]
     }
 };
-exports.default = abis;
+module.exports = abis;
